@@ -10,22 +10,38 @@
 
 <form method="get" action="nope://">
 
+<input id="browser-disclaimer" class="chkb-dismiss-next" type="checkbox"
+><section class="msgbox hint disclaimer"><p>
+  <label for="browser-disclaimer" class="chkb-button float-top-right"
+    ><input type="button" value="Hide this hint"></label>
+  NB: This application is optinized for use in the "Waterfox Classic" browser.
+</p></section>
+
 <div class="pages"><section class="page">
   <div class="topbar"><div class="border">
-    <label class="bgsel"><del><input class="bgfile" type="file">
-      </del>&#x1F502;</label>
-    <label class="image-dpi"><input type="number" size="5" value="127"
-      > dpi</label>
-    <input type="button" class="move_page_prev" value="&#x2397;">
-    <input type="button" class="dupe_page" value="&#x2FFB;">
-    <input type="button" class="move_page_next" value="&#x2398;">
-    <label><input type="button" value="&#x267C;"><div class="popdown">
-      <input type="button" class="erase_annots danger" value="&#x2620;">
+    <label class="bgsel" title="Select preview image"
+      ><del><input class="bgfile" type="file"></del>&#x1F4F7;</label>
+    <label class="image-dpi" title="Preview image resolution"
+      ><input type="number" size="5" value="127"> dpi</label>
+    <input type="button" class="move_page_prev" value="&#x2397;"
+      title="Swap this page with the previous one">
+    <input type="button" class="dupe_page" value="&#x2FFB;"
+      title="Duplicate this page">
+    <input type="button" class="move_page_next" value="&#x2398;"
+      title="Swap this page with the next one">
+    <label><input type="button" value="&#x267C;"
+      title="Erase all annotations"><div class="popdown">
+      <input type="button" class="erase_annots danger" value="&#x2620;"
+        title="Really erase">
     </div></label>
-    <input type="button" class="load_annots_html" value="&#x1F4C2;">
-    <input type="button" class="dump_annots_html" value="&#x1F4BE;">
-    <input type="button" class="sort_annots" value="&#x21C5;">
-    <input type="button" class="dump_annots_ann" value="&#x2386;">
+    <input type="button" class="load_annots_html" value="&#x1F4C2;"
+      title="Add HTML to annotations">
+    <input type="button" class="dump_annots_html" value="&#x1F4BE;"
+      title="Save annotations in HTML format">
+    <input type="button" class="sort_annots" value="&#x21C5;"
+      title="Sort annotations">
+    <input type="button" class="dump_annots_ann" value="&#x2386;"
+      title="Generate code for pdf-annot-pmb">
   </div></div>
   <div class="page-border"><div class="page-content">
     <img class="bgpic">
@@ -34,7 +50,8 @@
 </section></div>
 
 <div class="topbar"><div class="border">
-  <label class="codebox"><input type="button" value="&#x2328;"
+  <label class="codebox"><input type="button" class="codebox_select"
+    value="&#x2328;" title="Select all text in this field"
     ><div class="popdown"><textarea name="codebox" cols="60" rows="10"
     wrap="off"></textarea></div></label>
 </div></div>
@@ -43,14 +60,19 @@
 <script src="../node_modules/dom80-pmb/dist/dom80.latest.min.js"></script>
 <script src="../node_modules/dom80-pmb/extras/setupClassNameEventHandlers.js"></script>
 <!-- Load dom80 when cloned next to this (e.g. on GitHub Pages): -->
-<script src="../../dom80-pmb-js/dist/dom80.latest.min.js"></script>
+<script src="../../dom80-pmb-js/lib/dom80.js"
+  no-dist-dir="b/c GHP fails the symlink (404)"></script>
 <script src="../../dom80-pmb-js/extras/setupClassNameEventHandlers.js"></script>
 
 <div class="topbar right"><div class="border">
-  <input type="button" class="reload-script" value="&#x21BA;"><del>
+  <input type="button" class="reload-scripts" value="&#x21BA;"
+    title="Reload user interface"><del>
     <style>@import url("style.css?ts=0");</style>
-    <script src="main.js?ts=0"></script>
-    <script src="annotKeyEvents.js?ts=0"></script>
+    <script src="core.js?ts=0"></script>
+    <script src="evAnnotClicks.js?ts=0"></script>
+    <script src="evAnnotKeys.js?ts=0"></script>
+    <script src="evImageFromDisk.js?ts=0"></script>
+    <script src="evSimpleButtons.js?ts=0"></script>
   </del>
 </div></div>
 </form>

@@ -1,6 +1,7 @@
 ﻿@charset "UTF-8";
 /* -*- coding: UTF-8, tab-width: 2 -*- */
 
+label.chkb-button:after,
 .fill {
   display: block; margin: 0;
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -11,11 +12,15 @@ html {
   margin: 1ex;
 }
 label, body { position: relative; }
+label.chkb-button:after { content: " "; }
 p { margin: 0; }
+input.chkb-dismiss-next,
+input.chkb-dismiss-next:checked + *,
 del, .hidden { display: none; }
 .page-border,
 .page-content { display: inline-block; }
-.page-border { border: 2px solid green; background-color: forestgreen; }
+.page-border { border: 2px solid green; background-color: forestgreen;
+  min-width: 1em; min-height: 1em; }
 .page-content { position: relative; }
 .page-content img { vertical-align: middle; }
 .page-content .bgpic { cursor: crosshair; }
@@ -35,9 +40,11 @@ section { margin-top: 3em; }
 .topbar .border { position: relative; display: inline-block; }
 form > .topbar { position: fixed; top: 1ex; left: 1ex; }
 .topbar .border,
+.msgbox,
 .popdown { border: 2px solid dimgrey; background: whitesmoke; padding: 0.5ex; }
-
-input.danger { background-color: red; color: mistyrose; }
+.msgbox { display: inline-block; background: white; }
+.float-top-right { float: right; margin-left: 2em; margin-bottom: 0.5ex; }
+.danger { background-color: red; color: mistyrose; }
 
 textarea { resize: both; }
 .topbar .popdown { display: none; position: absolute; top: 100%; left: 0; }
