@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head data-jsglobal-dom80-pmb="dom80pmb">
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Text position wizard</title>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+</head><body>
+
+<form method="get" action="nope://">
+
+<div class="pages"><section class="page">
+  <div class="topbar"><div class="border">
+    <label class="bgsel"><del><input class="bgfile" type="file">
+      </del>&#x1F502;</label>
+    <label class="image-dpi"><input type="number" size="5" value="127"
+      > dpi</label>
+    <input type="button" class="move_page_prev" value="&#x2397;">
+    <input type="button" class="dupe_page" value="&#x2FFB;">
+    <input type="button" class="move_page_next" value="&#x2398;">
+    <label><input type="button" value="&#x267C;"><div class="popdown">
+      <input type="button" class="erase_annots danger" value="&#x2620;">
+    </div></label>
+    <input type="button" class="load_annots_html" value="&#x1F4C2;">
+    <input type="button" class="dump_annots_html" value="&#x1F4BE;">
+    <input type="button" class="sort_annots" value="&#x21C5;">
+    <input type="button" class="dump_annots_ann" value="&#x2386;">
+  </div></div>
+  <div class="page-border"><div class="page-content">
+    <img class="bgpic">
+    <div class="page-annots"></div>
+  </div></div>
+</section></div>
+
+<div class="topbar"><div class="border">
+  <label class="codebox"><input type="button" value="&#x2328;"
+    ><div class="popdown"><textarea name="codebox" cols="60" rows="10"
+    wrap="off"></textarea></div></label>
+</div></div>
+
+<!-- Load dom80 when it's properly installed as a dependency: -->
+<script src="../node_modules/dom80-pmb/dist/dom80.latest.min.js"></script>
+<script src="../node_modules/dom80-pmb/extras/setupClassNameEventHandlers.js"></script>
+<!-- Load dom80 when cloned next to this (e.g. on GitHub Pages): -->
+<script src="../../dom80-pmb-js/dist/dom80.latest.min.js"></script>
+<script src="../../dom80-pmb-js/extras/setupClassNameEventHandlers.js"></script>
+
+<div class="topbar right"><div class="border">
+  <input type="button" class="reload-script" value="&#x21BA;"><del>
+    <style>@import url("style.css?ts=0");</style>
+    <script src="main.js?ts=0"></script>
+    <script src="annotKeyEvents.js?ts=0"></script>
+  </del>
+</div></div>
+</form>
+
+
+</body></html>

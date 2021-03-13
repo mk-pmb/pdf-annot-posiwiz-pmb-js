@@ -1,0 +1,32 @@
+{ "name": "pdf-annot-posiwiz-pmb",
+  "version": "0.1.0",
+  "description": "An improvised SPA for Waterfox to find text positions for pdf-annot-pmb.",
+  "keywords": [],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/pdf-annot-posiwiz-pmb-js/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/pdf-annot-posiwiz-pmb-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/pdf-annot-posiwiz-pmb-js/issues"
+  },
+  "contributors": [],
+
+  "private": true, "license": "ISC",
+
+  "main": "app/main.js",
+  "scripts": { "test": "nodemjs test/all.mjs" },
+  "directories": { "test": "test" },
+
+  "dependencies": {
+    "dom80-pmb": "^0.1.5"
+  },
+  "devDependencies": {
+    "nodemjs": "^0.1.8"
+  },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
