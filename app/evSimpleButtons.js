@@ -2,7 +2,7 @@
 /* -*- tab-width: 2 -*- */
 (function () {
   'use strict';
-  var EX = exports;
+  var EX = exports, D = require('dom80-pmb');
 
   function stubSorry() { window.alert('Not implemented yet, sorry!'); }
   EX.on.input_move_page_prev_click = stubSorry;
@@ -29,6 +29,10 @@
 
   EX.on.input_erase_annots_click = function () {
     EX.getAnnotContainerFor(this).innerHTML = '';
+  };
+
+  EX.on.input_erase_page_click = function () {
+    D.rmTag(this.closest('section'));
   };
 
 }());

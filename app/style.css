@@ -48,7 +48,7 @@ del, .hidden { display: none; }
   background-color: rgba(192, 192, 64, 0.2);
 }
 
-.topbar { position: relative; top: 0; z-index: 4; }
+.topbar { position: relative; top: 0; z-index: 4; white-space: nowrap; }
 .fake-bg-overlay { position: fixed; top: var(--app-top-pad); left: 0; right: 0; }
 .fake-bg-overlay .topbar { left: -20em; opacity: 0; display: none; }
 .fake-bg-overlay .fill { top: -10em; background-color: var(--app-bgc); }
