@@ -2,9 +2,7 @@
 /* -*- tab-width: 2 -*- */
 (function () {
   'use strict';
-  var D = window.dom80pmb,
-    cssPx = D.css.px0,
-    EX = document.forms[0].magic;
+  var EX = exports, D = require('dom80-pmb'), cssPx = D.css.px0;
 
   function move(el, axis, delta) {
     var par = el.parentNode;

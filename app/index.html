@@ -10,13 +10,6 @@
 
 <form method="get" action="nope://">
 
-<input id="browser-disclaimer" class="chkb-dismiss-next" type="checkbox"
-><section class="msgbox hint disclaimer"><p>
-  <label for="browser-disclaimer" class="chkb-button float-top-right"
-    ><input type="button" value="Hide this hint"></label>
-  NB: This application is optinized for use in the "Waterfox Classic" browser.
-</p></section>
-
 <div class="pages"><section class="page">
   <div class="topbar"><div class="border">
     <label class="bgsel" title="Select preview image"
@@ -38,6 +31,8 @@
       title="Add HTML to annotations">
     <input type="button" class="dump_annots_html" value="&#x1F4BE;"
       title="Save annotations in HTML format">
+    <input type="button" class="dump_annots_json" value="&#x2339;"
+      title="Save annotations in JSON format">
     <input type="button" class="sort_annots" value="&#x21C5;"
       title="Sort annotations">
     <input type="button" class="dump_annots_ann" value="&#x2386;"
@@ -48,6 +43,13 @@
     <div class="page-annots"></div>
   </div></div>
 </section></div>
+
+<input id="browser-disclaimer" class="chkb-dismiss-next" type="checkbox"
+><section class="msgbox hint disclaimer"><p>
+  <label for="browser-disclaimer" class="chkb-button float-top-right"
+    ><input type="button" value="Hide this hint"></label>
+  NB: This application is optinized for use in the "Waterfox Classic" browser.
+</p></section>
 
 <div class="topbar"><div class="border">
   <label class="codebox"><input type="button" class="codebox_select"
@@ -63,6 +65,7 @@
 <script src="../../dom80-pmb-js/lib/dom80.js"
   no-dist-dir="b/c GHP fails the symlink (404)"></script>
 <script src="../../dom80-pmb-js/extras/setupClassNameEventHandlers.js"></script>
+<script src="stubCjs.js"></script>
 
 <div class="topbar right"><div class="border">
   <input type="button" class="reload-scripts" value="&#x21BA;"
@@ -73,6 +76,7 @@
     <script src="evAnnotKeys.js?ts=0"></script>
     <script src="evImageFromDisk.js?ts=0"></script>
     <script src="evSimpleButtons.js?ts=0"></script>
+    <script src="libStrUtil.js?ts=0"></script>
   </del>
 </div></div>
 </form>

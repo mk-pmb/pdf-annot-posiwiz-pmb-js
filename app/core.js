@@ -2,19 +2,13 @@
 /* -*- tab-width: 2 -*- */
 (function () {
   'use strict';
-  var D = window.dom80pmb, form = document.forms[0],
-    rxpl = D.rxpl,
-    EX = form.magic;
-  form.onsubmit = function never() { return false; };
-  if (!EX) {
-    EX = {};
-    form.magic = EX;
-  }
+  var EX = exports;
+  EX.form = document.forms[0];
+  (EX.form || {}).onsubmit = function never() { return false; };
   EX.pageSep = '\n\n  ';
   EX.annotSep = '\n    ';
-  EX.normWsp = function (v) { return rxpl(rxpl(v, /^\s*\n/), /\s*$/, '\n'); };
 
-  EX.on = window.setupClassNameEventHandlers({ hookOnto: form, events: [
+  EX.on = window.setupClassNameEventHandlers({ hookOnto: EX.form, events: [
     'change',
     'click',
     'keydown',
@@ -36,7 +30,7 @@
       e.focus();
       e.select();
     };
-  }(form.elements.codebox));
+  }(EX.form.elements.codebox));
 
 
 

@@ -2,9 +2,7 @@
 /* -*- tab-width: 2 -*- */
 (function () {
   'use strict';
-  var D = window.dom80pmb,
-    cssPx = D.css.px0,
-    EX = document.forms[0].magic;
+  var EX = exports, D = require('dom80-pmb'), cssPx = D.css.px0;
 
   EX.on.img_bgpic_click = function (ev) {
     var ann = EX.getAnnotContainerFor(this);
@@ -27,13 +25,23 @@
     }).join('');
   };
 
-  EX.on.input_dump_annots_ann_click = function () {
-    var pga = EX.getAnnotContainerFor(this), ann = [];
-    Array.from(pga.children).forEach(function found(child) {
-      var ln = cssPx(child, 'left');
-      return ln;
+  EX.scanAnnots = function (evTgt) {
+    var pga = EX.getAnnotContainerFor(evTgt), ann = [];
+    Array.from(pga.children).forEach(function found(ch) {
+      ann.push([cssPx(ch, 'left'), cssPx(ch, 'top'),
+        'text', ch.firstChild.value]);
     });
-    EX.codebox(ann.join(''));
+    return ann;
+  };
+
+  EX.on.input_dump_annots_json_click = function () {
+    EX.codebox('[\n' + EX.scanAnnots(this).map(function (ann) {
+      return '[' + JSON.stringify(ann, null, 1).slice(3).replace(/\n/g, '');
+    }).concat('null').join(',\n') + ']');
+  };
+
+  EX.on.input_dump_annots_ann_click = function () {
+    EX.codebox(EX.fmtAnn(EX.scanAnnots(this)));
   };
 
 }());

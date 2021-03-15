@@ -2,7 +2,7 @@
 /* -*- tab-width: 2 -*- */
 (function () {
   'use strict';
-  var D = window.dom80pmb, EX = document.forms[0].magic;
+  var EX = exports, D = require('dom80-pmb');
   function orf(x) { return x || false; }
 
   function readFileInput(ff, as, cb) {

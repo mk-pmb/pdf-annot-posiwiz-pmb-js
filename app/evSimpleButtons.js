@@ -2,7 +2,7 @@
 /* -*- tab-width: 2 -*- */
 (function () {
   'use strict';
-  var EX = document.forms[0].magic;
+  var EX = exports;
 
   function stubSorry() { window.alert('Not implemented yet, sorry!'); }
   EX.on.input_move_page_prev_click = stubSorry;
@@ -18,7 +18,9 @@
   };
 
   EX.on.input_load_annots_html_click = function () {
-    EX.getAnnotContainerFor(this).innerHTML += '\n' + EX.codebox();
+    var html = EX.codebox();
+    if (html.match(/^\s*%/)) { html = html.replace(/(^|\n) *%/g, '$1'); }
+    EX.getAnnotContainerFor(this).innerHTML += '\n' + html;
   };
 
   EX.on.input_dump_annots_html_click = function () {
