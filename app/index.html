@@ -37,11 +37,11 @@
       title="Sort annotations">
     <input type="button" class="dump_annots_ann" value="&#x2386;"
       title="Generate code for pdf-annot-pmb">
-  </div></div>
+  </div></div><hr>
   <div class="page-border"><div class="page-content">
     <img class="bgpic">
     <div class="page-annots"></div>
-  </div></div>
+  </div></div><hr>
 </section></div>
 
 <input id="browser-disclaimer" class="chkb-dismiss-next" type="checkbox"
@@ -51,6 +51,10 @@
   NB: This application is optinized for use in the "Waterfox Classic" browser.
 </p></section>
 
+<div class="fake-bg-overlay"><div class="topbar"><div class="border">
+  <input type="button" class="layout-height-dummy" value="" disabled="true">
+</div></div><div class="fill"></div></div>
+
 <div class="topbar"><div class="border">
   <label class="codebox"><input type="button" class="codebox_select"
     value="&#x2328;" title="Select all text in this field"
@@ -58,14 +62,16 @@
     wrap="off"></textarea></div></label>
 </div></div>
 
-<!-- Load dom80 when it's properly installed as a dependency: -->
-<script src="../node_modules/dom80-pmb/dist/dom80.latest.min.js"></script>
-<script src="../node_modules/dom80-pmb/extras/setupClassNameEventHandlers.js"></script>
-<!-- Load dom80 when cloned next to this (e.g. on GitHub Pages): -->
-<script src="../../dom80-pmb-js/lib/dom80.js"
-  no-dist-dir="b/c GHP fails the symlink (404)"></script>
-<script src="../../dom80-pmb-js/extras/setupClassNameEventHandlers.js"></script>
-<script src="stubCjs.js"></script>
+<div class="scripts cjs-stub">
+  <!-- Load dom80 when it's properly installed as a dependency: -->
+  <script src="../node_modules/dom80-pmb/dist/dom80.latest.min.js"></script>
+  <script src="../node_modules/dom80-pmb/extras/setupClassNameEventHandlers.js"></script>
+  <!-- Load dom80 when cloned next to this (e.g. on GitHub Pages): -->
+  <script src="../../dom80-pmb-js/lib/dom80.js"
+    no-dist-dir="b/c GHP fails the symlink (404)"></script>
+  <script src="../../dom80-pmb-js/extras/setupClassNameEventHandlers.js"></script>
+  <script src="stubCjs.js"></script>
+</div>
 
 <div class="topbar right"><div class="border">
   <input type="button" class="reload-scripts" value="&#x21BA;"
