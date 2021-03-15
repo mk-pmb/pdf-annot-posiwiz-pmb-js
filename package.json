@@ -21,7 +21,7 @@
   "directories": { "test": "test" },
 
   "dependencies": {
-    "dom80-pmb": "^0.1.5"
+    "dom80-pmb": "^0.1.6"
   },
   "devDependencies": {
     "nodemjs": "^0.1.8"

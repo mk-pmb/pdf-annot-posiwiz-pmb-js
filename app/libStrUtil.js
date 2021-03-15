@@ -15,24 +15,23 @@
   };
 
   function fmtAnn(annots) {
-    return annots.filter(Boolean).map(fmtAnn.delegate).join('\n');
+    var st = { prevAnnot: false };
+    function delegate(a) {
+      var how = EX['fmtAnn_' + a.type], code;
+      D.needType.fun(a.how, 'Annotation formatter for type ' + a.type);
+      code = how(a, st);
+      st.prevAnnot = a;
+      return code;
+    }
+    return annots.filter(Boolean).map(delegate).join('\n');
   }
   EX.fmtAnn = fmtAnn;
-  fmtAnn.delegate = function fmtAnnDelegate(a) {
-    a = a.slice();
-    a.left = a.shift();
-    a.top = a.shift();
-    a.type = a.shift();
-    a.how = EX['fmtAnn_' + a.type];
-    D.needType.fun(a.how, 'Annotation formatter for type ' + a.type);
-    return a.how(a);
-  };
 
-  EX.fmtAnn_text = function (ann) {
+  EX.fmtAnn_text = function (ann, st) {
     return ('    '
-      + EX.annPosNumFmt(ann.left)
-      + EX.annPosNumFmt(ann.top)
-      + '    (' + ann[0].replace(/[\\\(\)]/g, '\\$1') + ')');
+      + EX.annPosNumFmt(ann.mmLeft)
+      + EX.annPosNumFmt(ann.mmTop - (st.prevAnnot.mmTop || 0))
+      + '    (' + ann.value.replace(/[\\\(\)]/g, '\\$1') + ')');
   };
 
 

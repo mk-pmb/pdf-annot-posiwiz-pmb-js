@@ -7,6 +7,7 @@
   (EX.form || {}).onsubmit = function never() { return false; };
   EX.pageSep = '\n\n  ';
   EX.annotSep = '\n    ';
+  EX.mmPerInch = 25.4;
 
   EX.on = window.setupClassNameEventHandlers({ hookOnto: EX.form, events: [
     'change',

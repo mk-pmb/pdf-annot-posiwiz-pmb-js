@@ -26,11 +26,20 @@
   };
 
   EX.scanAnnots = function (evTgt) {
-    var pga = EX.getAnnotContainerFor(evTgt), ann = [];
-    Array.from(pga.children).forEach(function found(ch) {
-      ann.push([cssPx(ch, 'left'), cssPx(ch, 'top'),
-        'text', ch.firstChild.value]);
+    var s = evTgt.closest('section'), c = EX.getAnnotContainerFor(evTgt),
+      ann, dpi = (+s.querySelector('.image-dpi input').value || 0);
+    if (dpi < 0.01) { throw new Error('Resolution (dpi) too low'); }
+    ann = Array.from(c.children).map(function found(ch) {
+      return {
+        type: 'text',
+        mmLeft: (cssPx(ch, 'left') * EX.mmPerInch) / dpi,
+        mmTop: (cssPx(ch, 'top') * EX.mmPerInch) / dpi,
+        value: ch.firstChild.value,
+      };
     });
+    ann.dpi = dpi;
+    ann.mmPerPx = EX.mmPerInch / dpi;
+    // ^-- ATTN: Imprecise! For best precision, multiply before division!
     return ann;
   };
 
