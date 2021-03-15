@@ -5,11 +5,17 @@
   var EX = exports, D = require('dom80-pmb'), cssPx = D.css.px0;
 
   EX.on.img_bgpic_click = function (ev) {
-    var ann = EX.getAnnotContainerFor(this);
-    ann.innerHTML += (EX.annotSep + '<ins class="annot" style="left: '
-      + Math.round(ev.elemX) + 'px; top: ' + Math.round(ev.elemY)
-      + 'px"><input class="annot" type="text"></ins>');
-    ann.lastElementChild.firstChild.focus();
+    var ann, ins, what = EX.firstCheckedInput('insert_what');
+    if (!what) { return; }
+    ins = what.parentNode.nextElementSibling.innerHTML;
+    ins = ins.trim().replace(/\s*\n\s*/g, ' ').replace(/\s+(>)/g, '$1');
+    ann = EX.getAnnotContainerFor(this);
+    ann.innerHTML += EX.annotSep + ins;
+    ins = ann.lastElementChild;
+    ins.dataset.type = what.parentNode.innerText.trim();
+    ins.style.left = Math.round(ev.elemX) + 'px';
+    ins.style.top = Math.round(ev.elemY) + 'px';
+    D.ifMtd(ins.firstChild, 'focus', Boolean)();
   };
 
   EX.on.input_sort_annots_click = function () {
@@ -25,17 +31,24 @@
     }).join('');
   };
 
+
   EX.scanAnnots = function (evTgt) {
-    var s = evTgt.closest('section'), c = EX.getAnnotContainerFor(evTgt),
-      ann, dpi = (+s.querySelector('.image-dpi input').value || 0);
+    var pg = evTgt.closest('section'),
+      ann = Array.from(EX.getAnnotContainerFor(evTgt).children),
+      dpi = (+pg.querySelector('.image-dpi input').value || 0);
     if (dpi < 0.01) { throw new Error('Resolution (dpi) too low'); }
-    ann = Array.from(c.children).map(function found(ch) {
-      return {
-        type: 'text',
-        mmLeft: (cssPx(ch, 'left') * EX.mmPerInch) / dpi,
-        mmTop: (cssPx(ch, 'top') * EX.mmPerInch) / dpi,
-        value: ch.firstChild.value,
-      };
+    function mmProp(o, e, p) {
+      o['mm' + p] = (cssPx(e, p.toLowerCase()) * EX.mmPerInch) / dpi;
+    }
+    ann = ann.map(function found(e) {
+      var c = e.firstChild, o = { type: e.dataset.type, value: c.value };
+      mmProp(o, e, 'Left');
+      mmProp(o, e, 'Top');
+      if (c.style.height) {
+        mmProp(o, c, 'Width');
+        mmProp(o, c, 'Height');
+      }
+      return o;
     });
     ann.dpi = dpi;
     ann.mmPerPx = EX.mmPerInch / dpi;
@@ -45,7 +58,7 @@
 
   EX.on.input_dump_annots_json_click = function () {
     EX.codebox('[\n' + EX.scanAnnots(this).map(function (ann) {
-      return '[' + JSON.stringify(ann, null, 1).slice(3).replace(/\n/g, '');
+      return '{' + JSON.stringify(ann, null, 1).slice(3).replace(/\n/g, '');
     }).concat('null').join(',\n') + ']');
   };
 

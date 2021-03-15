@@ -40,11 +40,10 @@
     <input type="button" class="dump_annots_ann" value="&#x2386;"
       title="Generate code for pdf-annot-pmb">
   </div></div><hr>
-  <div class="page-border"><div class="page-content">
-    <img class="bgpic">
-    <div class="page-annots"></div>
-  </div></div><hr>
-</section></div>
+  <div class="page-border"><div class="page-content"><img class="bgpic"
+    src="dummyImageSmall.svg"><div class="page-annots">
+  </div></div></div><hr>
+</section><!-- /page --></div><!-- /pages -->
 
 <input id="browser-disclaimer" class="chkb-dismiss-next" type="checkbox"
 ><section class="msgbox hint disclaimer"><p>
@@ -58,10 +57,24 @@
 </div></div><div class="fill"></div></div>
 
 <div class="topbar"><div class="border">
-  <label class="codebox"><input type="button" class="codebox_select"
+  <div class="codebox"><input type="button" class="codebox_select"
     value="&#x2328;" title="Select all text in this field"
-    ><div class="popdown"><textarea name="codebox" cols="60" rows="10"
-    wrap="off"></textarea></div></label>
+    ><div class="popdown"><textarea name="codebox" cols="60" rows="10" wrap="off">
+    <ins class="annot" data-type="text" style="left: 180px; top: 180px;"><input class="annot-text-value" style="width: 5ex;" value="Eris" type="text"></ins>
+    <ins class="annot" data-type="text" style="left: 180px; top: 220px;"><input class="annot-text-value" style="width: 5ex;" value="42" type="text"></ins>
+    <ins class="annot" data-type="rect" style="left: 433px; top: 275px;"><textarea class="annot-rect-name" style="width: 54px; height: 15px;" wrap="soft">serial</textarea></ins>
+    </textarea></div></div>
+  <div><input type="button" value="+" title="Select insert mode"
+    ><div class="popdown radiobtn-list down">
+    <label><input type="radio" name="insert_what" checked="checked"
+      >text</label><del>
+      <ins class="annot"><input type="text" class="annot-text-value"></ins>
+      </del>
+    <label><input type="radio" name="insert_what"
+      >rect</label><del>
+      <ins class="annot"><textarea class="annot-rect-name" wrap="soft"></textarea></ins>
+      </del>
+  </div></div>
 </div></div>
 
 <div class="scripts cjs-stub">
@@ -78,13 +91,14 @@
 <div class="topbar right"><div class="border">
   <input type="button" class="reload-scripts" value="&#x21BA;"
     title="Reload user interface"><del>
-    <style>@import url("style.css?ts=0");</style>
+    <style>@import url("../css/app.css?ts=0");</style>
     <script src="core.js?ts=0"></script>
+    <script src="libSyncFieldValueToHtml.js?ts=0"></script>
+    <script src="libFmtAnn.js?ts=0"></script>
     <script src="evAnnotClicks.js?ts=0"></script>
     <script src="evAnnotKeys.js?ts=0"></script>
     <script src="evImageFromDisk.js?ts=0"></script>
     <script src="evSimpleButtons.js?ts=0"></script>
-    <script src="libStrUtil.js?ts=0"></script>
   </del>
 </div></div>
 </form>

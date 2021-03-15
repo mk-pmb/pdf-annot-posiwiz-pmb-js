@@ -1,0 +1,43 @@
+﻿@charset "UTF-8";
+/* -*- coding: UTF-8, tab-width: 2 -*- */
+
+.page-content ins {
+  position: absolute; text-decoration: none; font-style: normal;
+  --txc: darkgoldenrod;
+  font-size: 12px;
+}
+
+.page-content ins > * {
+  position: absolute; left: 0;
+  border: 1px dashed var(--txc);
+  background-color: rgba(192, 192, 64, 0.2);
+}
+.page-content ins > textarea:hover,
+.page-content ins > textarea:focus:not(:empty),
+.page-content ins > input:hover,
+.page-content ins > input:focus:not([value=""]) {
+  background-color: rgba(255, 255, 192, 0.8); }
+
+.page-content ins textarea,
+.page-content ins input { font: inherit; color: var(--txc); }
+
+.page-content ins[data-type="text"] input {
+  bottom: 0; width: 3ex;
+  border-top-width: 0; border-right-width: 0;
+}
+
+.page-content ins[data-type="rect"] textarea {
+  width: 2em; height: 2em; overflow: hidden; }
+.page-content ins[data-type="rect"] textarea:hover {
+  resize: both; overflow-y: scroll; }
+
+
+
+
+
+
+
+
+
+
+/* scroll */

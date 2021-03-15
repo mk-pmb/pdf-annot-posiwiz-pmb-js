@@ -1,5 +1,5 @@
 { "name": "pdf-annot-posiwiz-pmb",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An improvised SPA for Waterfox to find text positions for pdf-annot-pmb.",
   "keywords": [],
 
@@ -21,7 +21,7 @@
   "directories": { "test": "test" },
 
   "dependencies": {
-    "dom80-pmb": "^0.1.6"
+    "dom80-pmb": "^0.1.7"
   },
   "devDependencies": {
     "nodemjs": "^0.1.8"

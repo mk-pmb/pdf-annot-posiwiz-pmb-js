@@ -37,16 +37,6 @@ del, .hidden { display: none; }
 .page-content { position: relative; }
 .page-content img { vertical-align: middle; }
 .page-content .bgpic { cursor: crosshair; }
-.page-content ins {
-  position: absolute; top: attr(css-y); left: attr(css-x);
-  text-decoration: none; font-style: normal;
-}
-.page-content ins input {
-  --txc: darkgoldenrod;
-  position: absolute; left: 0; bottom: 0; width: 3ex; color: var(--txc);
-  border: 1px dashed var(--txc); border-top-width: 0; border-right-width: 0;
-  background-color: rgba(192, 192, 64, 0.2);
-}
 
 .topbar { position: relative; top: 0; z-index: 4; white-space: nowrap; }
 .fake-bg-overlay { position: fixed; top: var(--app-top-pad); left: 0; right: 0; }
@@ -65,7 +55,8 @@ del, .hidden { display: none; }
 
 textarea { resize: both; }
 .topbar .popdown { display: none; position: absolute; top: 100%; left: 0; }
-.topbar label:hover .popdown { display: block; }
+.topbar > .border > * { display: inline-block; position: relative; }
+.topbar > .border > *:hover .popdown { display: block; }
 
 form > .topbar { position: fixed; top: var(--app-top-pad); }
 .topbar.right { left: auto; right: var(--app-sides-pad); }
@@ -75,19 +66,9 @@ input[type="number"] { text-align: right; }
 .topbar label.image-dpi { margin: 0 1ex; }
 .topbar label.image-dpi input { width: 8ex; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+input[type="radio"] { margin-right: 0.5ex; }
+.radiobtn-list > label { margin-right: 2em; }
+.radiobtn-list.down > label { display: block; margin-right: unset; }
 
 
 
