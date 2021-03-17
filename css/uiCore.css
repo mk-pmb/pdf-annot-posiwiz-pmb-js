@@ -2,6 +2,7 @@
 /* -*- coding: UTF-8, tab-width: 2 -*- */
 
 label.chkb-button:after,
+.page-content .page-annots,
 .fill {
   display: block; margin: 0;
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -36,9 +37,9 @@ del, .hidden { display: none; }
   min-width: 1em; min-height: 1em; }
 .page-content { position: relative; }
 .page-content img { vertical-align: middle; }
-.page-content .bgpic { cursor: crosshair; }
+.page-content .page-annots { overflow: hidden; cursor: crosshair; }
 
-.topbar { position: relative; top: 0; z-index: 4; white-space: nowrap; }
+.topbar { position: relative; top: 0; z-index: 20; white-space: nowrap; }
 .fake-bg-overlay { position: fixed; top: var(--app-top-pad); left: 0; right: 0; }
 .fake-bg-overlay .topbar { left: -20em; opacity: 0; display: none; }
 .fake-bg-overlay .fill { top: -10em; background-color: var(--app-bgc); }

@@ -4,7 +4,7 @@
   'use strict';
   var EX = exports, D = require('dom80-pmb'), cssPx = D.css.px0;
 
-  EX.on.img_bgpic_click = function (ev) {
+  EX.on.div_page_annots_click = function (ev) {
     var ann, ins, what = EX.firstCheckedInput('insert_what');
     if (!what) { return; }
     ins = what.parentNode.nextElementSibling.innerHTML;

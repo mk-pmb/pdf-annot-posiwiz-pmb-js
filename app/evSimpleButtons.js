@@ -19,7 +19,7 @@
 
   EX.on.input_load_annots_html_click = function () {
     var html = EX.codebox();
-    if (html.match(/^\s*%/)) { html = html.replace(/(^|\n) *%/g, '$1'); }
+    if (html.match(/^\s*[#%]/)) { html = html.replace(/(^|\n) *[#%]/g, '$1'); }
     EX.getAnnotContainerFor(this).innerHTML += '\n' + html;
   };
 

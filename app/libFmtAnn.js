@@ -16,7 +16,10 @@
 
 
   function fmtAnn(annots) {
-    var st = { prevAnnot: false }, code = [];
+    var code = [], st = {
+      prevAnnot: false,
+      prevTextLineTop: 0,
+    };
     function delegate(a) {
       if (!a) { return; }
       var how = EX['fmtAnn_' + a.type];
@@ -34,8 +37,10 @@
   fmtAnn.indent = '    ';
 
   EX.fmtAnn_text = function (ann, st) {
-    return (posFmt(ann.mmLeft) + posFmt(ann.mmTop - (st.prevAnnot.mmTop || 0))
+    var code = (posFmt(ann.mmLeft) + posFmt(ann.mmTop - st.prevTextLineTop)
       + '    (' + ann.value.replace(/[\\\(\)]/g, '\\$1') + ')');
+    st.prevTextLineTop = ann.mmTop;
+    return code;
   };
 
   EX.fmtAnn_rect = function (ann, st) {

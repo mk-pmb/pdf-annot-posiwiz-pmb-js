@@ -18,7 +18,12 @@
     // setTimeout(sync.bind(null, ev.target), 5);
     sync(ev.target);
     if (ev.target.type === 'text') {
-      this.style.width = Math.min(this.value.length + 2, 15) + 'ex';
+      if (this.value) {
+        this.style.width = Math.min(this.value.length + 2, 15) + 'ex';
+      } else {
+        this.style.width = '';
+        delete this.style.width;
+      }
     }
     if (!this.value) { (onTextKey.emptyTextKeys[ev.key] || Boolean)(this); }
   }
